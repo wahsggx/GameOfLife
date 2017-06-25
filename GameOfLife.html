@@ -1,0 +1,79 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>testD3-7-drawSVG.html</title>
+    <script type="text/javascript" src="d3.js"></script>
+
+</head>
+<body>
+<script>
+	var width = 550;
+	var height = 550;
+	var x_count = 10;
+	var y_count = 10;
+
+	var dx = width/(x_count);
+	var dy = height/(y_count);
+	
+	function generate_checkerboard(width,height,x_count,y_count){
+		var svg = d3.select("body").append("svg")
+    	.attr("width", width)
+	    .attr("height", height);
+
+		var dx = width/(x_count);
+		var dy = height/(y_count);
+		for (var i = 0;i<=x_count;i++){	
+				svg.append('line')
+				   .attr("x1",i*dx)
+					.attr("y1",0)
+					.attr("x2",i*dx)
+					.attr("y2",width)
+				   .attr("stroke","gray")
+				   .attr("stroke-width",2)
+		}
+	   for (var j = 0;j<=y_count;j++){	
+				svg.append('line')
+				   .attr("x1",0)
+					.attr("y1",j*dy)
+					.attr("x2",height)
+					.attr("y2",j*dy)
+				   .attr("stroke","gray")
+				   .attr("stroke-width",2)
+		}
+		return svg;
+	}
+    
+	function show_cell(svg,i,j){
+		svg.append("circle")
+		.attr("cx",i*dx+dx/2)
+		.attr("cy",j*dy+dy/2)
+		.attr("r",dx/2)
+	}
+	
+	function generate_random_matrix(x_count,y_count){
+		var tArray = new Array(); 
+		for(var k=0;k<x_count;k++){ 
+			tArray[k]=new Array(); 
+			for(var j=0;j<y_count;j++){
+				tArray[k][j]=Math.round(Math.random());
+			}	
+		}
+		return tArray;
+	}
+	
+	function show_all_cell(tArray){
+		for(var i=0;i<tArray.length;i++){
+			for (var j = 0;j<tArray[0].length;j++){
+				if(tArray[i][j]>0)
+ 					show_cell(svg,i,j);
+			}
+		}		
+	}
+	var svg = generate_checkerboard(width,height,x_count,y_count);
+	var origin_matrix=generate_random_matrix(x_count,y_count);
+	show_all_cell(origin_matrix);
+   
+</script>
+
+</body>
+</html>
