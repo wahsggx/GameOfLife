@@ -1,80 +1,90 @@
-<html>
+<!DOCTYPE html>
 <head>
 	<meta charset="utf-8">
 	<title>testD3-7-drawSVG.html</title>
+	<link rel="stylesheet" href="GameOfLife.css">
 	<script type="text/javascript" src="js/d3.js"></script>
-	<script type="text/javascript" src = "https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/init_graph.js"></script>
 	<script type="text/javascript" src="js/generate_checkerboard.js"></script>
 	<script type="text/javascript" src="js/show.js"></script>
 	<script type="text/javascript" src = "js/update.js"></script>
+
 </head>
 <body>
-<script>
-var width = 550;
-var height = 550;
-var x_count = 30;
-var y_count = 30;
+	<div>
+		<button id="random_life"  >random_life</button>
+		<button id="weekender" >weekender</button>
+		<button id="spider" >spider</button>
+		<button id="glider_gun" >glider_gun</button>
+		<button id="run" disabled="true">run</button><br/>
+	</div>
+	<br/>
 
-var dx = width/(x_count);
-var dy = height/(y_count);
-
-var cell_life;
-
-var svg = d3.select("body").append("svg")
-	.attr("width", width)
-	.attr("height", height);
-
-window.onload=function(){
-	
-
-var Timer;
-//实现功能
-function run(){
-	cell_life = change_cell(x_count,y_count,cell_life); 
-	show_all_cell(cell_life);
-}
+    <script>
+        /**
+         * Created by Hokkaido on 2017/7/15.
+         */
+        var width = window.screen.availWidth;
+        var height = window.screen.height;
+        var x_count =0;
+        var y_count = 0;
+        var dx = 20;
+        var dy = 20;
+        var glider_gun = new Array();
 
 
-//button_random按钮
-	var button_random=document.getElementById("random_life");
-	button_random.onclick=function(){
-		cell_life = generate_random_matrix(x_count,y_count,Math.random());
-		show_all_cell(cell_life);
-		var button_run_pause = document.getElementById("run");
-		button_run_pause.disabled = false;
-	}
+        var cell_life;
 
-//glider_gun按钮
-	var button_glider = document.getElementById("glider_gun");
-	button_glider.onclick = function(){
-		cell_life = generate_glider_gun();
-		show_all_cell(cell_life);
-		var button_run_pause = document.getElementById("run");
-		button_run_pause.disabled = false;
-	}
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
 
-	//run和pause按钮
-	var state=true;
-
-	var button_run_pause = document.getElementById("run");
-	button_run_pause.onclick = function(){
-		if(state){
-			Timer = setInterval(run,500);
-			button_run_pause.innerHTML="pause";
-		}else{
-			clearInterval(Timer);
-			button_run_pause.innerHTML="run";
-		}
-		state = !state;
-	}
-}
+        window.onload=function(){
 
 
-</script>
-<br>
-<button id="random_life"  >random_life</button>
-<button id="glider_gun" >glider_gun</button>
-<button id="run" disabled="true">run</button>
+            var Timer;
+            //实现功能
+            function run(){
+                cell_life = change_cell(x_count,y_count,cell_life);
+                show_all_cell(cell_life);
+            }
+            //button_random按钮
+            var button_random=document.getElementById("random_life");
+            button_random.onclick=function(){
+                x_count = 30;
+                y_count = 30;
+                cell_life = generate_random_matrix(x_count,y_count,Math.random());
+                show_all_cell(cell_life);
+                var button_run_pause = document.getElementById("run");
+                button_run_pause.disabled = false;
+            }
+
+            //glider_gun按钮
+            var button_glider = document.getElementById("glider_gun");
+            button_glider.onclick = function(){
+                x_count = 5;
+                y_count = 5;
+                cell_life = generate_glider_gun(x_count,y_count,glider_gun);
+                show_all_cell(cell_life);
+                var button_run_pause = document.getElementById("run");
+                button_run_pause.disabled = false;
+            }
+
+            //run和pause按钮
+            var state=true;
+
+            var button_run_pause = document.getElementById("run");
+            button_run_pause.onclick = function(){
+                if(state){
+                    Timer = setInterval(run,200);
+                    button_run_pause.innerHTML="pause";
+                }else{
+                    clearInterval(Timer);
+                    button_run_pause.innerHTML="run";
+                }
+                state = !state;
+            }
+        }
+    </script>
 </body>
 </html>
