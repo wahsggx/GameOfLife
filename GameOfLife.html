@@ -4,8 +4,10 @@
 	<title>testD3-7-drawSVG.html</title>
 	<link rel="stylesheet" href="GameOfLife.css">
 	<script type="text/javascript" src="js/d3.js"></script>
+    <script type="text/javascript" src="js/generate_checkerboard.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/init_graph.js"></script>
-	<script type="text/javascript" src="js/generate_checkerboard.js"></script>
+
 	<script type="text/javascript" src="js/show.js"></script>
 	<script type="text/javascript" src = "js/update.js"></script>
 
@@ -13,7 +15,7 @@
 <body>
 	<div>
 		<button id="random_life"  >random_life</button>
-		<button id="weekender" >weekender</button>
+		<button id="test" >test</button>
 		<button id="spider" >spider</button>
 		<button id="glider_gun" >glider_gun</button>
 		<button id="run" disabled="true">run</button><br/>
@@ -24,66 +26,51 @@
         /**
          * Created by Hokkaido on 2017/7/15.
          */
+
         var width = window.screen.availWidth;
         var height = window.screen.height;
-        var x_count =0;
-        var y_count = 0;
-        var dx = 20;
-        var dy = 20;
-        var glider_gun = new Array();
+        var x_count = 0;//x方向格子数量
+        var y_count = 0;//方向格子数量
+        var dx = 20/2;//x方向格子长度
+        var dy = 20/2;//方向格子长度
 
-
+        var board = new Array();//在函数里初始化为二维数组，代表每个格子的值，作为参数传进去
         var cell_life;
 
+        var Timer;
+        var state = true;//button run 的状态
+
+        //添加svg
         var svg = d3.select("body").append("svg")
             .attr("width", width)
             .attr("height", height);
 
-        window.onload=function(){
+        window.onload = function() {
 
-
-            var Timer;
-            //实现功能
-            function run(){
-                cell_life = change_cell(x_count,y_count,cell_life);
-                show_all_cell(cell_life);
-            }
             //button_random按钮
-            var button_random=document.getElementById("random_life");
-            button_random.onclick=function(){
-                x_count = 30;
-                y_count = 30;
-                cell_life = generate_random_matrix(x_count,y_count,Math.random());
-                show_all_cell(cell_life);
-                var button_run_pause = document.getElementById("run");
-                button_run_pause.disabled = false;
-            }
+            var button_random = document.getElementById("random_life");
+            button_random.onclick = func_button_random;
+
+
+            //test按钮
+            var button_test = document.getElementById("test");
+            button_test.onclick = func_button_test;
+
+            //spider按钮
+            var button_spider = document.getElementById("spider");
+            button_spider.onclick = func_button_spider;
 
             //glider_gun按钮
-            var button_glider = document.getElementById("glider_gun");
-            button_glider.onclick = function(){
-                x_count = 5;
-                y_count = 5;
-                cell_life = generate_glider_gun(x_count,y_count,glider_gun);
-                show_all_cell(cell_life);
-                var button_run_pause = document.getElementById("run");
-                button_run_pause.disabled = false;
-            }
+            var button_glider_gun = document.getElementById("glider_gun");
+            button_glider_gun.onclick = func_button_glider_gun;
+
 
             //run和pause按钮
-            var state=true;
 
             var button_run_pause = document.getElementById("run");
-            button_run_pause.onclick = function(){
-                if(state){
-                    Timer = setInterval(run,200);
-                    button_run_pause.innerHTML="pause";
-                }else{
-                    clearInterval(Timer);
-                    button_run_pause.innerHTML="run";
-                }
-                state = !state;
-            }
+            button_run_pause.onclick = func_button_run_pause;
+
+
         }
     </script>
 </body>

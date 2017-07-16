@@ -1,59 +1,69 @@
-/**
- * Created by Hokkaido on 2017/7/15.
- */
-var width = 550;
-var height = 550;
-var x_count = 30;
-var y_count = 30;
-
-var dx = width/(x_count);
-var dy = height/(y_count);
-
-var cell_life;
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-window.onload=function(){
-
-
-    var Timer;
-    //实现功能
-    function run(){
-        cell_life = change_cell(x_count,y_count,cell_life);
-        show_all_cell(cell_life);
-    }
-    //button_random按钮
-    var button_random=document.getElementById("random_life");
-    button_random.onclick=function(){
-        cell_life = generate_random_matrix(x_count,y_count,Math.random());
-        show_all_cell(cell_life);
-        var button_run_pause = document.getElementById("run");
-        button_run_pause.disabled = false;
-    }
-
-    //glider_gun按钮
-    var button_glider = document.getElementById("glider_gun");
-    button_glider.onclick = function(){
-        cell_life = generate_glider_gun();
-        show_all_cell(cell_life);
-        var button_run_pause = document.getElementById("run");
-        button_run_pause.disabled = false;
-    }
-
-    //run和pause按钮
-    var state=true;
-
+//random_life按钮执行函数
+function func_button_random() {
+    svg.selectAll("*").remove();
+    x_count = 30;
+    y_count = 30;
+    generate_checkerboard(x_count*dx,y_count*dy,x_count,y_count,svg);
+    cell_life = generate_random_matrix(x_count,y_count,Math.random());
+    show_all_cell(cell_life);
     var button_run_pause = document.getElementById("run");
-    button_run_pause.onclick = function(){
-        if(state){
-            Timer = setInterval(run,50);
-            button_run_pause.innerHTML="pause";
-        }else{
-            clearInterval(Timer);
-            button_run_pause.innerHTML="run";
-        }
-        state = !state;
-    }
+    button_run_pause.disabled = false;
 }
+
+//test按钮执行函数
+function func_button_test() {
+    svg.selectAll("*").remove();
+    x_count = 5;
+    y_count = 5;
+    generate_checkerboard(x_count*dx,y_count*dy,x_count,y_count,svg);
+    cell_life = generate_test(x_count,y_count,board);
+    show_all_cell(cell_life);
+    var button_run_pause = document.getElementById("run");
+    button_run_pause.disabled = false;
+}
+
+//spider按钮执行函数
+function func_button_spider(){
+    svg.selectAll("*").remove();
+    x_count = 43;//43
+    y_count = 25;//25
+    generate_checkerboard(x_count*dx,y_count*dy,x_count,y_count,svg);
+    cell_life = generate_spider(x_count,y_count,board);
+    show_all_cell(cell_life);
+    var button_run_pause = document.getElementById("run");
+    button_run_pause.disabled = false;
+}
+
+//glider_gun按钮执行函数
+function func_button_glider_gun() {
+    svg.selectAll("*").remove();
+    x_count = 38;
+    y_count = 24;
+    generate_checkerboard(x_count*dx,y_count*dy,x_count,y_count,svg);
+    cell_life = generate_glider_gun(x_count,y_count,board);
+    show_all_cell(cell_life);
+    var button_run_pause = document.getElementById("run");
+    button_run_pause.disabled = false;
+}
+
+//run按钮执行函数
+function func_button_run_pause() {
+    var button_run_pause = document.getElementById("run");
+    if(state){
+        Timer = setInterval(run,50);
+        button_run_pause.innerHTML="pause";
+    }else{
+        clearInterval(Timer);
+        button_run_pause.innerHTML="run";
+    }
+    state = !state;
+}
+
+
+//run函数
+function run(){
+    cell_life = change_cell(x_count,y_count,cell_life);
+    show_all_cell(cell_life);
+}
+
+
