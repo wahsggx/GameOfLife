@@ -1,3 +1,11 @@
+function getData() {
+    dx = document.getElementById("dx").value;
+    dy = document.getElementById("dy").value;
+    speed = document.getElementById("speed").value;
+
+}
+
+
 //random_life按钮执行函数
 function func_button_random() {
     svg.selectAll("*").remove();
@@ -22,18 +30,6 @@ function func_button_test() {
     button_run_pause.disabled = false;
 }
 
-//spider按钮执行函数
-function func_button_spider(){
-    svg.selectAll("*").remove();
-    x_count = 43;//43
-    y_count = 25;//25
-    generate_checkerboard(x_count*dx,y_count*dy,x_count,y_count,svg);
-    cell_life = generate_spider(x_count,y_count,board);
-    show_all_cell(cell_life);
-    var button_run_pause = document.getElementById("run");
-    button_run_pause.disabled = false;
-}
-
 //glider_gun按钮执行函数
 function func_button_glider_gun() {
     svg.selectAll("*").remove();
@@ -50,7 +46,7 @@ function func_button_glider_gun() {
 function func_button_run_pause() {
     var button_run_pause = document.getElementById("run");
     if(state){
-        Timer = setInterval(run,50);
+        Timer = setInterval(run,speed);
         button_run_pause.innerHTML="pause";
     }else{
         clearInterval(Timer);

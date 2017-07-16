@@ -14,12 +14,20 @@
 </head>
 <body>
 	<div>
+		模式：
 		<button id="random_life"  >random_life</button>
 		<button id="test" >test</button>
-		<button id="spider" >spider</button>
 		<button id="glider_gun" >glider_gun</button>
 		<button id="run" disabled="true">run</button><br/>
+
 	</div>
+	<form method="post" id="form1">
+		格子宽度：<input type="text" id="dx" value="20" />
+		格子长度：<input type="text" id="dy" value="20"/>
+		生长速度：<input type="text" id="speed" value="200" placeholder="请输入1-1000的数字"/>
+		<input type="button" id="input_data" onclick = "getData()" value = "提交">
+
+	</form>
 	<br/>
 
     <script>
@@ -31,8 +39,9 @@
         var height = window.screen.height;
         var x_count = 0;//x方向格子数量
         var y_count = 0;//方向格子数量
-        var dx = 20/2;//x方向格子长度
-        var dy = 20/2;//方向格子长度
+        var dx = 20;//x方向格子长度
+        var dy = 20;//方向格子长度
+		var speed = 200;//更新速度
 
         var board = new Array();//在函数里初始化为二维数组，代表每个格子的值，作为参数传进去
         var cell_life;
@@ -46,6 +55,8 @@
             .attr("height", height);
 
         window.onload = function() {
+			//获取输入数据
+
 
             //button_random按钮
             var button_random = document.getElementById("random_life");
@@ -55,10 +66,6 @@
             //test按钮
             var button_test = document.getElementById("test");
             button_test.onclick = func_button_test;
-
-            //spider按钮
-            var button_spider = document.getElementById("spider");
-            button_spider.onclick = func_button_spider;
 
             //glider_gun按钮
             var button_glider_gun = document.getElementById("glider_gun");
