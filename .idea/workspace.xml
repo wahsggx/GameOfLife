@@ -28,8 +28,8 @@
       <file leaf-file-name="GameOfLife.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GameOfLife.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+            <state relative-caret-position="330">
+              <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -38,8 +38,8 @@
       <file leaf-file-name="GameOfLife.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameOfLife.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+            <state relative-caret-position="154">
+              <caret line="43" column="22" lean-forward="false" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -134,8 +134,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-27" />
-    <option name="y" value="5" />
+    <option name="x" value="120" />
     <option name="width" value="1378" />
     <option name="height" value="744" />
   </component>
@@ -271,7 +270,7 @@
       <workItem from="1500253430460" duration="863000" />
       <workItem from="1500433254703" duration="553000" />
       <workItem from="1501312587843" duration="13570000" />
-      <workItem from="1501382501870" duration="5199000" />
+      <workItem from="1501382501870" duration="6218000" />
     </task>
     <task id="LOCAL-00001" summary="修复致命bug：矩阵赋值的时候为引用赋值，修改被赋值矩阵的时候，注意js会修改原矩阵">
       <created>1500132828559</created>
@@ -301,14 +300,21 @@
       <option name="project" value="LOCAL" />
       <updated>1501387457539</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="optimize the style of  button of submit and run">
+      <created>1501388024867</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1501388024867</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50661000" />
+    <option name="totallyTimeSpent" value="51680000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-27" y="5" width="1378" height="744" extended-state="0" />
+    <frame x="120" y="0" width="1378" height="744" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11641791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -358,7 +364,8 @@
     <MESSAGE value="add test unit(test and glider_gun) and optimize code." />
     <MESSAGE value="add inputs of width and height of board,and cell grow speed." />
     <MESSAGE value="optimize interface and consummate function" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimize interface and consummate function" />
+    <MESSAGE value="optimize the style of  button of submit and run" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimize the style of  button of submit and run" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -761,16 +768,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GameOfLife.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+        <state relative-caret-position="154">
+          <caret line="43" column="22" lean-forward="false" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GameOfLife.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+        <state relative-caret-position="330">
+          <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
           <folding />
         </state>
       </provider>
