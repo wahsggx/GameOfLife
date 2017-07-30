@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameOfLife.css" afterPath="$PROJECT_DIR$/GameOfLife.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameOfLife.html" afterPath="$PROJECT_DIR$/GameOfLife.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="GameOfLife.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GameOfLife.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="75" column="13" lean-forward="false" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+            <state relative-caret-position="374">
+              <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -39,8 +38,8 @@
       <file leaf-file-name="GameOfLife.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameOfLife.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="64" column="16" lean-forward="true" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+            <state relative-caret-position="198">
+              <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -122,9 +121,9 @@
         <option value="$PROJECT_DIR$/js/generate_checkerboard.js" />
         <option value="$PROJECT_DIR$/js/show.js" />
         <option value="$PROJECT_DIR$/js/init_graph.js" />
-        <option value="$PROJECT_DIR$/GameOfLife.css" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/GameOfLife.html" />
+        <option value="$PROJECT_DIR$/GameOfLife.css" />
       </list>
     </option>
   </component>
@@ -135,8 +134,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-3" />
-    <option name="y" value="44" />
+    <option name="x" value="-27" />
+    <option name="y" value="5" />
     <option name="width" value="1378" />
     <option name="height" value="744" />
   </component>
@@ -272,7 +271,7 @@
       <workItem from="1500253430460" duration="863000" />
       <workItem from="1500433254703" duration="553000" />
       <workItem from="1501312587843" duration="13570000" />
-      <workItem from="1501382501870" duration="4515000" />
+      <workItem from="1501382501870" duration="5199000" />
     </task>
     <task id="LOCAL-00001" summary="修复致命bug：矩阵赋值的时候为引用赋值，修改被赋值矩阵的时候，注意js会修改原矩阵">
       <created>1500132828559</created>
@@ -295,17 +294,24 @@
       <option name="project" value="LOCAL" />
       <updated>1500218260358</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="optimize interface and consummate function">
+      <created>1501387457539</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1501387457539</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49977000" />
+    <option name="totallyTimeSpent" value="50661000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="44" width="1378" height="744" extended-state="0" />
+    <frame x="-27" y="5" width="1378" height="744" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11641791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11641791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -351,7 +357,8 @@
     <MESSAGE value="修复致命bug：矩阵赋值的时候为引用赋值，修改被赋值矩阵的时候，注意js会修改原矩阵" />
     <MESSAGE value="add test unit(test and glider_gun) and optimize code." />
     <MESSAGE value="add inputs of width and height of board,and cell grow speed." />
-    <option name="LAST_COMMIT_MESSAGE" value="add inputs of width and height of board,and cell grow speed." />
+    <MESSAGE value="optimize interface and consummate function" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimize interface and consummate function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -744,14 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameOfLife.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="64" column="16" lean-forward="true" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -760,10 +759,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GameOfLife.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GameOfLife.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="75" column="13" lean-forward="false" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+        <state relative-caret-position="374">
+          <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
           <folding />
         </state>
       </provider>
