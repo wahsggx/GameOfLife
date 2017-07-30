@@ -9,8 +9,9 @@ function getData() {
 //random_life按钮执行函数
 function func_button_random() {
     svg.selectAll("*").remove();
-    x_count = 30;
-    y_count = 30;
+    x_count = Math.floor(svg_width/dx);
+    y_count = Math.floor(svg_height/dy);
+    //getData();
     generate_checkerboard(x_count*dx,y_count*dy,x_count,y_count,svg);
     cell_life = generate_random_matrix(x_count,y_count,Math.random());
     show_all_cell(cell_life);
@@ -18,23 +19,13 @@ function func_button_random() {
     button_run_pause.disabled = false;
 }
 
-//test按钮执行函数
-function func_button_test() {
-    svg.selectAll("*").remove();
-    x_count = 5;
-    y_count = 5;
-    generate_checkerboard(x_count*dx,y_count*dy,x_count,y_count,svg);
-    cell_life = generate_test(x_count,y_count,board);
-    show_all_cell(cell_life);
-    var button_run_pause = document.getElementById("run");
-    button_run_pause.disabled = false;
-}
 
 //glider_gun按钮执行函数
 function func_button_glider_gun() {
     svg.selectAll("*").remove();
     x_count = 38;
     y_count = 24;
+    //getData();
     generate_checkerboard(x_count*dx,y_count*dy,x_count,y_count,svg);
     cell_life = generate_glider_gun(x_count,y_count,board);
     show_all_cell(cell_life);
