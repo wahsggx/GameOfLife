@@ -29,6 +29,7 @@ margin:0px 5px;}
     height: 100%;
     float: left;
 }
+#container-left-form1{ width:100%;}
 #container-p{
     float: left;
     width: 35%;
@@ -37,8 +38,10 @@ margin:0px 5px;}
     font-size: 17px;
 
 }
-#container-input{float: left;width: 50%;height: 100px;}
+#container-input{width: 100%;}
+span{display: inline-block;width:35%;}
 #button-submit{
+    display: inline-block;
     width: 60px;
     height: 30px;
     border-radius: 6px;

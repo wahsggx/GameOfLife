@@ -22,21 +22,12 @@
 
             <form method="post" id="container-left-form1">
                 <h3>Preference：</h3>
-                <div id="container-p">
-                    <p>cell-width</p>
-                    <p>cell-height</p>
-                    <p>grow-speed</p>
-                </div>
                 <div id="container-input">
-                    <input type="text" id="dx" value="20" /><br/>
-                    <input type="text" id="dy" value="20"/><br/>
-                    <input type="text" id="speed" value="200" placeholder="请输入1-1000的数字"/><br/>
-                </div>
-                <br/>
-                <div id="container-submit">
+                    <div class="input-group"> <span class="input-group-addon">&ensp;cell-width&ensp;&ensp;&nbsp;：</span> <input type="text" class="form-control" aria-label=""></div>
+                    <div class="input-group"> <span class="input-group-addon">&ensp;cell-height&nbsp;&nbsp;&nbsp;：</span> <input type="text" class="form-control" aria-label=""></div>
+                    <div class="input-group"> <span class="input-group-addon">&ensp;grow-speed&nbsp;：</span> <input type="text" class="form-control" aria-label="请输入1-1000的数字"></div>
                     <input type="button" id="button-submit" onclick = "getData()" value = "submit">
                 </div>
-
             </form>
             <div id="container-left-func">
                 <h3>option:</h3>
