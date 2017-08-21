@@ -10,7 +10,7 @@ margin:0px 5px;}
     margin: 0;
     padding:0;
     height: 100%;
-    line-height: 2.2;
+    line-height: 2.4;
     text-align: center;
     }
 #container{
@@ -62,10 +62,10 @@ input{width:100px;
 height:16px;  margin-top: 12px;}
 #run{
     width: 80px;
-    height: 60px;
+    height: 55px;
     font-size: 20px;
     background-color: mediumseagreen;
-    margin: 10px 15px;
+    margin: 3px 15px;
 
 }
 svg{
