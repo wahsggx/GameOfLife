@@ -1,36 +1,50 @@
-html{height:100%;}
-body{height:100%;
-margin:0px 5px;}
-#div-head{
-    height:15%;
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0px 5px;
+}
+
+#div-head {
+    height: 15%;
     background-color: darkseagreen;
     position: relative;
 }
-#div-head h1{
+
+#div-head h1 {
     margin: 0;
-    padding:0;
+    padding: 0;
     height: 100%;
     line-height: 2.4;
     text-align: center;
-    }
-#container{
+}
+
+#container {
     width: 100%;
     height: 85%;
     left: 0;
-    background-color:lightgoldenrodyellow;
+    background-color: lightgoldenrodyellow;
 }
-#container-left{
-    width:30%;
+
+#container-left {
+    width: 30%;
     height: 100%;
     float: left;
 }
-#container-right{
-    width:70%;
+
+#container-right {
+    width: 70%;
     height: 100%;
     float: left;
 }
-#container-left-form1{ width:100%;}
-#container-p{
+
+#container-left-form1 {
+    width: 100%;
+}
+
+#container-p {
     float: left;
     width: 35%;
     height: 100px;
@@ -38,19 +52,30 @@ margin:0px 5px;}
     font-size: 17px;
 
 }
-#container-input{width: 100%;}
-span{display: inline-block;width:35%;}
-#button-submit{
+
+#container-input {
+    width: 100%;
+}
+
+span {
+    display: inline-block;
+    width: 35%;
+}
+
+#button-submit {
     display: inline-block;
     width: 60px;
     height: 30px;
     border-radius: 6px;
-    background-color: darkseagreen;}
+    background-color: darkseagreen;
+}
+
 #container-submit {
     margin-top: 60px;
-    height:50px;
+    height: 50px;
 }
-button{
+
+button {
     width: 100px;
     height: 50px;
     border-radius: 10px;
@@ -58,17 +83,23 @@ button{
     font-size: 15px;
     margin: 10px 5px;
 }
-input{width:100px;
-height:16px;  margin-top: 12px;}
-#run{
+
+input {
+    width: 100px;
+    height: 16px;
+    margin-top: 12px;
+}
+
+#run {
     width: 80px;
     height: 55px;
     font-size: 20px;
     background-color: mediumseagreen;
-    margin: 3px 15px;
+    margin: 5px 15px;
 
 }
-svg{
+
+svg {
     width: 100%;
     height: 100%;
 }

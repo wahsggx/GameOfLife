@@ -1,97 +1,104 @@
 <!DOCTYPE html>
 <head>
-	<meta charset="utf-8">
-	<title>GameOfLife</title>
-	<link rel="stylesheet" href="GameOfLife.css">
-	<script type="text/javascript" src="js/d3.js"></script>
+    <meta charset="utf-8">
+    <title>GameOfLife</title>
+    <link rel="stylesheet" href="GameOfLife.css">
+    <script type="text/javascript" src="js/d3.js"></script>
     <script type="text/javascript" src="js/generate_checkerboard.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/init_graph.js"></script>
+    <script type="text/javascript" src="js/init_graph.js"></script>
 
-	<script type="text/javascript" src="js/show.js"></script>
-	<script type="text/javascript" src = "js/update.js"></script>
+    <script type="text/javascript" src="js/show.js"></script>
+    <script type="text/javascript" src="js/update.js"></script>
 
 </head>
 <body>
-    <div id="div-head">
-        <h1>GameOfLife</h1>
-    </div>
+<div id="div-head">
+    <h1>GameOfLife</h1>
+</div>
 
-    <div id="container">
-        <div id="container-left">
+<div id="container">
+    <div id="container-left">
 
-            <form method="post" id="container-left-form1">
-                <h3>Preference：</h3>
-                <div id="container-input">
-                    <div class="input-group"> <span class="input-group-addon">&ensp;cell-width&ensp;&ensp;&nbsp;：</span> <input type="text" class="form-control" aria-label=""></div>
-                    <div class="input-group"> <span class="input-group-addon">&ensp;cell-height&nbsp;&nbsp;&nbsp;：</span> <input type="text" class="form-control" aria-label=""></div>
-                    <div class="input-group"> <span class="input-group-addon">&ensp;grow-speed&nbsp;：</span> <input type="text" class="form-control" aria-label="请输入1-1000的数字"></div>
-                    <br>
-                    <input type="button" id="button-submit" onclick = "getData()" value = "submit">
-                </div>
-            </form>
-            <div id="container-left-func">
-                <h3>option:</h3>
-                <button id="random_life" >random_life</button>
-                <button id="glider_gun" >glider_gun</button>
+        <form method="post" id="container-left-form1">
+            <h3>Preference：</h3>
+            <div id="container-input">
+                <div class="input-group"><span class="input-group-addon">&ensp;cell-width&ensp;&ensp;&nbsp;：</span>
+                    <input type="text" class="form-control" id="dx" aria-label="20"></div>
+                <div class="input-group"><span class="input-group-addon">&ensp;cell-height&nbsp;&nbsp;&nbsp;：</span>
+                    <input type="text" class="form-control" id="dy" aria-label="20"></div>
+                <div class="input-group"><span class="input-group-addon">&ensp;grow-speed&nbsp;：</span> <input
+                        type="text" class="form-control" id="speed"</div>
+                <br>
+                <input type="button" id="button-submit" onclick="getData()" value="submit">
             </div>
-            <div id="container-left-run">
-                <h3>run:</h3>
-                <button id="run" disabled="true">run</button>
-            </div>
+        </form>
+        <div id="container-left-func">
+            <h3>option:</h3>
+            <button id="random_life">random_life</button>
+            <button id="glider_gun">glider_gun</button>
         </div>
-        <div id="container-right">
-
+        <div id="container-left-run">
+            <h3>run:</h3>
+            <button id="run" disabled="true">run</button>
         </div>
     </div>
+    <div id="container-right">
 
-    <script>
-        /**
-         * Created by Hokkaido on 2017/7/15.
-         */
+    </div>
+</div>
 
-        var width = window.screen.availWidth;
-        var height = window.screen.height;
-        var x_count = 0;//x方向格子数量
-        var y_count = 0;//方向格子数量
-        var dx = 20;//x方向格子长度
-        var dy = 20;//方向格子长度
-		var speed = 200;//更新速度
+<script>
+    /**
+     * Created by Hokkaido on 2017/7/15.
+     */
 
-        var board = new Array();//在函数里初始化为二维数组，代表每个格子的值，作为参数传进去
-        var cell_life;
+    var width = window.screen.availWidth;
+    var height = window.screen.height;
+    var x_count = 0;//x方向格子数量
+    var y_count = 0;//方向格子数量
+    var dx = 20;//x方向格子长度
+    var dy = 20;//方向格子长度
+    var dx_old = 20;
+    var dy_old = 20;
+    var speed = 200;//更新速度
 
-        var Timer;
-        var state = true;//button run 的初始状态
+    var board = new Array();//在函数里初始化为二维数组，代表每个格子的值，作为参数传进去
+    var cell_life;
 
-        //添加svg
-        var svg = d3.select("#container-right").append("svg")
-        //        .attr("width",0.7*width)
-        //        .attr("height", 0.85*height)
-        var svg_width;
-        var svg_height;
+    var Timer;
+    var state = true;//button run 的初始状态
+
+    //添加svg
+    var svg = d3.select("#container-right").append("svg")
+    //        .attr("width",0.7*width)
+    //        .attr("height", 0.85*height)
+    var svg_width;
+    var svg_height;
+
+    var model = 2;
+    var initState = true;
+    window.onload = function () {
+        //获取输入数据
+        svg_width = document.getElementById('container-right').offsetWidth;
+        svg_height = document.getElementById('container-right').offsetHeight;
+
+        //button_random按钮
+        var button_random = document.getElementById("random_life");
+        button_random.onclick = func_button_random;
+
+        //glider_gun按钮
+        var button_glider_gun = document.getElementById("glider_gun");
+        button_glider_gun.onclick = func_button_glider_gun;
 
 
-        window.onload = function() {
-			//获取输入数据
-            svg_width = document.getElementById('container-right').offsetWidth;
-            svg_height = document.getElementById('container-right').offsetHeight;
-            //button_random按钮
-            var button_random = document.getElementById("random_life");
-            button_random.onclick = func_button_random;
+        //run和pause按钮
 
-            //glider_gun按钮
-            var button_glider_gun = document.getElementById("glider_gun");
-            button_glider_gun.onclick = func_button_glider_gun;
+        var button_run_pause = document.getElementById("run");
+        button_run_pause.onclick = func_button_run_pause;
 
 
-            //run和pause按钮
-
-            var button_run_pause = document.getElementById("run");
-            button_run_pause.onclick = func_button_run_pause;
-
-
-        }
-    </script>
+    }
+</script>
 </body>
 </html>
